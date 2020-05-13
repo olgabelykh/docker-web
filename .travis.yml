@@ -1,0 +1,7 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t olyabelome/docker-web -f Dockerfile.dev .
+script:
+  - docker run -e CI=true olyabelome/docker-web npm run test
